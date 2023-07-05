@@ -16,7 +16,7 @@ export default {
         },
         getImageUrl(posterPath) {
             const baseUrl = 'https://image.tmdb.org/t/p/';
-            const imageSize = 'w342'; // Dimensione desiderata dell'immagine
+            const imageSize = 'w342';
             return `${baseUrl}${imageSize}${posterPath}`;
         }
     }
