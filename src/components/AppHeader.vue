@@ -1,22 +1,26 @@
 <script>
 export default {
     data() {
-        return {}
-    }
+        return {
+            selectFilter: ""
+        }
+    },
+    emits: ["term-change", "form-submit"]
 }
 </script>
 
 <template>
-    <nav class="container-fluid">
+    <nav class="container-fluid py-3">
         <div class="row">
             <div class="col-6 d-flex align-items-center">
                 <h1>Boolflix</h1>
             </div>
             <div class="col-6 d-flex align-items-center">
-                <div class="input-group justify-content-end">
-                    <input class="me-2" type="text" placeholder="Film oppure Serie TV">
+                <form class="input-group justify-content-end" @submit.prevent="$emit('form-submit')">
+                    <input v-model.trim="selectFilter" @keyup="$emit('term-change', selectFilter)" class="me-2" type="text"
+                        placeholder="Film oppure Serie TV">
                     <button class="btn btn-secondary" type="button">Cerca</button>
-                </div>
+                </form>
             </div>
         </div>
     </nav>
@@ -24,6 +28,7 @@ export default {
 
 <style scoped>
 nav {
+    height: 105px;
     background-color: black;
 }
 
