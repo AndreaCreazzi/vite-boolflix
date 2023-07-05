@@ -16,7 +16,7 @@ export default {
             <div class="row g-4 row-cols-3 row-cols-md-4 row-cols-lg-5">
                 <div class="col" v-for="item in store.film" :key="item.id">
                     <CardBoolflix :title="item.title" :originalTitle="item.original_title"
-                        :Languages="item.original_language" :vote="item.vote_average" />
+                        :Languages="item.original_language" :vote="item.vote_average" :posterPath="item.poster_path" />
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@ export default {
             <div class="row g-4 row-cols-3 row-cols-md-4 row-cols-lg-5">
                 <div class="col" v-for="item in store.tv" :key="item.id">
                     <CardBoolflix :title="item.name" :originalTitle="item.original_name" :Languages="item.original_language"
-                        :vote="item.vote_average" />
+                        :vote="item.vote_average" :posterPath="item.poster_path" />
                 </div>
             </div>
         </div>
