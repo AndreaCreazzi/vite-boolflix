@@ -6,6 +6,16 @@ export default {
 }
 </script>
 
-<template></template>
+<template>
+    <section>
 
-<style scoped></style>
+    </section>
+</template>
+
+<style scoped>
+section {
+    height: 100vh;
+    background-color: #434343;
+    color: white;
+}
+</style>
