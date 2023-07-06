@@ -3,10 +3,7 @@ import axios from 'axios';
 import { store } from './data/store'
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
-const endpoint = 'https://api.themoviedb.org/3/search/'
-const movie = "movie?"
-const tv = "tv?"
-const api_key = "api_key=32a657d19bc99fae056014a936cdb307"
+import { api } from './data';
 export default {
   components: { AppHeader, AppMain },
   data() {
@@ -30,8 +27,8 @@ export default {
       this.nameFilter = term
     },
     searchItem() {
-      const filteredFilm = `${endpoint}${movie}${api_key}&query=${this.nameFilter}`
-      const filteredtv = `${endpoint}${tv}${api_key}&query=${this.nameFilter}`
+      const filteredFilm = `${api.endpoint}${api.movie}${api.api_key}&query=${this.nameFilter}`
+      const filteredtv = `${api.endpoint}${api.tv}${api.api_key}&query=${this.nameFilter}`
       this.fetchTv(filteredtv)
       this.fetchFilms(filteredFilm)
     }
