@@ -18,6 +18,10 @@ export default {
             const baseUrl = 'https://image.tmdb.org/t/p/';
             const imageSize = 'w342';
             return `${baseUrl}${imageSize}${posterPath}`;
+        },
+        getStarVote() {
+            const roundedVote = Math.ceil(this.vote / 2);
+            return Array.from({ length: 5 }, (_, index) => index + 1 <= roundedVote);
         }
     }
 }
@@ -28,15 +32,17 @@ export default {
             <li class="list-unstyled">
                 <h4>{{ title }}</h4>
                 <p>{{ originalTitle }}</p>
-                <h6 v-if="!hasFlag(Languages)">{{ Languages }}</h6>
-                <img class="flags" v-if="hasFlag(Languages)" :src="`/src/assets/img/img/${Languages}.png`" alt="">
-                <p>{{ vote }}</p>
+                <h6 v-if="!hasFlag(Languages)">Lingua: {{ Languages }}</h6>
+                <p>Lingua: <img class="flags" v-if="hasFlag(Languages)" :src="`/src/assets/img/img/${Languages}.png`"
+                        alt="">
+                </p>
+                <p v-for="star in getStarVote()" :class="star ? 'fas fa-star' : 'far fa-star'"></p>
                 <img class="poster" v-if="posterPath" :src="getImageUrl(posterPath)" alt="">
             </li>
         </ul>
     </div>
 </template>
-<style>
+<style scoped>
 .flags {
     max-width: 30px;
     max-height: 20px;
@@ -46,5 +52,9 @@ export default {
 .poster {
     max-width: 100px;
     max-height: 100px;
+}
+
+.fas {
+    color: gold;
 }
 </style>
