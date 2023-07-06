@@ -31,13 +31,18 @@ export default {
     <div class="container text-center p-0">
         <ul v-if="posterPath" class="p-0">
             <li id="content" class="list-unstyled">
+                <p>Titolo:</p>
                 <h5>{{ title }}</h5>
                 <p v-if="title !== originalTitle" class="font-min">{{ originalTitle }}</p>
-                <h6 v-if="!hasFlag(Languages)">Lingua: {{ Languages }}</h6>
+                <p>Lingua:</p>
+                <h6 v-if="!hasFlag(Languages)">{{ Languages }}</h6>
                 <p><img class="flags mt-3" v-if="hasFlag(Languages)" :src="`/src/assets/img/img/${Languages}.png`" alt="">
                 </p>
+                <p>Voto:</p>
                 <p v-for="star in getStarVote()" :class="star ? 'fas fa-star fa-beat' : 'far fa-star'"></p>
-                <p class="text-truncate text-context">{{ context }}</p>
+                <p>Trama:</p>
+                <p v-if="context" class="text-truncate text-context">{{ context }}</p>
+                <p v-else>No trama</p>
             </li>
             <li id="poster-image" class="list-unstyled">
                 <img class="poster" :src="getImageUrl(posterPath)" alt="">
@@ -66,6 +71,7 @@ export default {
     left: 0%;
     transform: translateY(-50%);
     display: none;
+
 }
 
 ul:hover #content {
@@ -103,5 +109,10 @@ h5 {
     color: white;
     font-weight: bolder;
     margin-top: 150px;
+}
+
+p {
+    margin-bottom: 9px;
+    font-weight: bolder;
 }
 </style>
