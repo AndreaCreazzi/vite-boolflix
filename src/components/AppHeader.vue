@@ -17,9 +17,9 @@ export default {
             </div>
             <div class="col-6 d-flex align-items-center">
                 <form class="input-group justify-content-end" @submit.prevent="$emit('form-submit')">
-                    <input v-model.trim="selectFilter" @keyup="$emit('term-change', selectFilter)" class="me-2" type="text"
+                    <input v-model.trim="selectFilter" @keyup="$emit('term-change', selectFilter)" type="text"
                         placeholder="Film oppure Serie TV">
-                    <button class="btn btn-secondary" type="button">Cerca</button>
+                    <button class="btn btn-secondary" type="submit">Cerca</button>
                 </form>
             </div>
         </div>
@@ -38,5 +38,9 @@ nav {
 
 h1 {
     color: red;
+}
+
+button {
+    border-radius: 50px;
 }
 </style>

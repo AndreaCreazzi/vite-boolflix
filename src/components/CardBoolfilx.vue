@@ -48,7 +48,7 @@ export default {
                 <img class="poster" :src="getImageUrl(posterPath)" alt="">
             </li>
         </ul>
-        <p class="extra" v-else>Nessun elemento</p>
+        <p class="extra" v-else>PROSSIMA USCITA..</p>
     </div>
 </template>
 <style scoped>
