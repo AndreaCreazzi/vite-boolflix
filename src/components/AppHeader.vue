@@ -13,7 +13,7 @@ export default {
     <nav class="container-fluid py-3">
         <div class="row">
             <div class="col-6 d-flex align-items-center">
-                <h1>Boolflix</h1>
+                <h1>BOOLFLIX</h1>
             </div>
             <div class="col-6 d-flex align-items-center">
                 <form class="input-group justify-content-end" @submit.prevent="$emit('form-submit')">
