@@ -43,6 +43,7 @@ export default {
                 <img class="poster" :src="getImageUrl(posterPath)" alt="">
             </li>
         </ul>
+        <p class="extra" v-else>Nessun elemento</p>
     </div>
 </template>
 <style scoped>
@@ -96,5 +97,11 @@ h5 {
     font-size: 0.8rem;
     padding-left: 5px;
     font-weight: bolder;
+}
+
+.extra {
+    color: white;
+    font-weight: bolder;
+    margin-top: 150px;
 }
 </style>
