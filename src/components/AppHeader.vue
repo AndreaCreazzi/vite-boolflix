@@ -5,6 +5,7 @@ export default {
             selectFilter: ""
         }
     },
+    // emits send to App.vue
     emits: ["term-change", "form-submit"]
 }
 </script>
@@ -13,9 +14,11 @@ export default {
     <nav class="py-3">
         <div class="container">
             <div class="row">
+                <!-- Title page -->
                 <div class="col-6 d-flex align-items-center">
                     <h1>BOOLFLIX</h1>
                 </div>
+                <!-- Searchbar -->
                 <div class="col-6 d-flex align-items-center">
                     <form class="input-group justify-content-end" @submit.prevent="$emit('form-submit')">
                         <input v-model.trim="selectFilter" @keyup="$emit('term-change', selectFilter)" type="text"

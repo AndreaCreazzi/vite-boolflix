@@ -1,5 +1,6 @@
 <script>
 export default {
+    // props
     props: {
         title: String,
         originalTitle: String,
@@ -12,14 +13,17 @@ export default {
         return {}
     },
     methods: {
+        // function for flags en || it
         hasFlag(language) {
             return ['it', 'en'].includes(language);
         },
+        // function for getting poster image
         getImageUrl(posterPath) {
             const baseUrl = 'https://image.tmdb.org/t/p/';
             const imageSize = 'w342';
             return `${baseUrl}${imageSize}${posterPath}`;
         },
+        // function for getting star vote
         getStarVote() {
             const roundedVote = Math.ceil(this.vote / 2);
             return Array.from({ length: 5 }, (_, index) => index + 1 <= roundedVote);
@@ -31,23 +35,29 @@ export default {
     <div class="container text-center p-0">
         <ul v-if="posterPath" class="p-0">
             <li id="content" class="list-unstyled">
+                <!-- title -->
                 <p>Titolo:</p>
                 <h5>{{ title }}</h5>
                 <p v-if="title !== originalTitle" class="font-min">{{ originalTitle }}</p>
+                <!-- language -->
                 <p>Lingua:</p>
                 <h6 v-if="!hasFlag(Languages)">{{ Languages }}</h6>
                 <p><img class="flags mt-3" v-if="hasFlag(Languages)" :src="`/src/assets/img/img/${Languages}.png`" alt="">
                 </p>
+                <!-- vote -->
                 <p>Voto:</p>
                 <p v-for="star in getStarVote()" :class="star ? 'fas fa-star fa-beat' : 'far fa-star'"></p>
+                <!-- trama -->
                 <p>Trama:</p>
                 <p v-if="context" class="text-truncate text-context">{{ context }}</p>
                 <p v-else>No trama</p>
             </li>
+            <!-- poster image -->
             <li id="poster-image" class="list-unstyled">
                 <img class="poster" :src="getImageUrl(posterPath)" alt="">
             </li>
         </ul>
+        <!-- if poster image don't have url image -->
         <p class="extra" v-else>PROSSIMA USCITA..</p>
     </div>
 </template>
